@@ -7,38 +7,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 const protractor_1 = require("protractor");
 let Options = require('./options');
 let options = new Options();
 class PageStart {
-    constructor() {
-        this.geoButton = protractor_1.element(protractor_1.by.css('span.geolink__reg'));
-        this.moreButton = protractor_1.element(protractor_1.by.css("a.home-link.home-link_blue_yes.home-tabs__link.home-tabs__more-switcher.dropdown2__switcher"));
-        this.moreContent = protractor_1.element(protractor_1.by.css("div.home-tabs__more"));
-        this.get = function () {
-            return __awaiter(this, void 0, void 0, function* () {
-                yield protractor_1.browser.get('https://yandex.ru/');
-            });
-        };
-        this.clickGeoButton = function () {
-            return __awaiter(this, void 0, void 0, function* () {
-                options.isClickable(this.geoButton);
-                yield this.geoButton.click();
-            });
-        };
-        this.copyMore = function (more) {
-            return __awaiter(this, void 0, void 0, function* () {
-                options.isClickable(this.moreButton);
-                yield this.moreButton.click();
-                more = yield this.moreContent.getText();
-            });
-        };
-        this.compare = function (parisMore, londonMore) {
-            return __awaiter(this, void 0, void 0, function* () {
-                yield expect(parisMore).toEqual(londonMore);
-            });
-        };
+    static get() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield protractor_1.browser.get('https://yandex.ru/');
+        });
+    }
+    static clickGeoButton() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield options.isClickable(this.geoButton);
+            yield this.geoButton.click();
+            console.log("clickGeoButton");
+        });
+    }
+    static clickOnButtonMore() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield options.isClickable(this.moreButton);
+            yield this.moreButton.click();
+            console.log("clickOnButtonMore");
+        });
     }
 }
-module.exports = PageStart;
+PageStart.geoButton = protractor_1.element(protractor_1.by.css('span.geolink__reg'));
+PageStart.moreButton = protractor_1.element(protractor_1.by.css("a.home-link.home-link_blue_yes.home-tabs__link.home-tabs__more-switcher.dropdown2__switcher"));
+PageStart.moreContent = protractor_1.element(protractor_1.by.css("div.home-tabs__more"));
+exports.PageStart = PageStart;
 //# sourceMappingURL=pageStart.js.map

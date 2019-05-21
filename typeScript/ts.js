@@ -9,31 +9,35 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const protractor_1 = require("protractor");
-let PageStart = require('./pageStart');
-let PageTown = require('./pageTown');
-let pageStart = new PageStart();
-let pageTown = new PageTown();
+const pageStart_1 = require("./pageStart");
+const pageTown_1 = require("./pageTown");
 let londonMore;
 let parisMore;
 describe('Type Script Test', function () {
     beforeEach(function () {
         return __awaiter(this, void 0, void 0, function* () {
             yield protractor_1.browser.waitForAngularEnabled(false);
-            pageStart.get();
+            pageStart_1.PageStart.get();
             console.log("before");
         });
     });
     it('should compare more of London and Parish', function () {
         return __awaiter(this, void 0, void 0, function* () {
             console.log("it");
-            pageStart.clickGeoButton();
-            pageTown.setTown("Лондон");
-            pageStart.copyMore(londonMore);
-            pageStart.clickGeoButton();
-            pageTown.setTown("Париж");
-            pageStart.copyMore(parisMore);
-            pageStart.clickGeoButton();
-            pageStart.compare();
+            yield pageStart_1.PageStart.clickGeoButton();
+            yield pageTown_1.PageTown.writeTown("Лондон");
+            yield pageTown_1.PageTown.setTown();
+            yield pageStart_1.PageStart.clickOnButtonMore();
+            londonMore = yield pageStart_1.PageStart.moreContent.getText();
+            yield pageStart_1.PageStart.clickGeoButton();
+            yield pageTown_1.PageTown.writeTown("Париж");
+            yield pageTown_1.PageTown.setTown();
+            yield pageStart_1.PageStart.clickOnButtonMore();
+            parisMore = yield pageStart_1.PageStart.moreContent.getText();
+            ;
+            console.log(londonMore);
+            console.log(parisMore);
+            yield yield expect(parisMore).toEqual(londonMore);
             console.log("success");
         });
     });
