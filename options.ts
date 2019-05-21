@@ -5,4 +5,3 @@ export class Options {
         await browser.wait(this.EC.elementToBeClickable(el), 5000);
     }
 }
-//export = Options;

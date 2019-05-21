@@ -1,7 +1,6 @@
 import {browser, element, by} from 'protractor';
 import {Options} from './options';
-//let Options = require('./options');
-//let options = new Options();
+
 export class PageStart {
     private static geoButton = element(by.css('span.geolink__reg'));
     private static moreButton = element(by.css("a.home-link.home-link_blue_yes.home-tabs__link.home-tabs__more-switcher.dropdown2__switcher"));
