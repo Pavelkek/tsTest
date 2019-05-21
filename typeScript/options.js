@@ -18,5 +18,4 @@ class Options {
 }
 Options.EC = protractor_1.protractor.ExpectedConditions;
 exports.Options = Options;
-//export = Options;
 //# sourceMappingURL=options.js.map

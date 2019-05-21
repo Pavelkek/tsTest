@@ -18,12 +18,10 @@ describe('Type Script Test', function () {
         return __awaiter(this, void 0, void 0, function* () {
             yield protractor_1.browser.waitForAngularEnabled(false);
             pageStart_1.PageStart.get();
-            console.log("before");
         });
     });
     it('should compare more of London and Parish', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("it");
             yield pageStart_1.PageStart.clickGeoButton();
             yield pageTown_1.PageTown.writeTown("Лондон");
             yield pageTown_1.PageTown.setTown();
@@ -35,10 +33,7 @@ describe('Type Script Test', function () {
             yield pageStart_1.PageStart.clickOnButtonMore();
             parisMore = yield pageStart_1.PageStart.moreContent.getText();
             ;
-            console.log(londonMore);
-            console.log(parisMore);
             yield yield expect(parisMore).toEqual(londonMore);
-            console.log("success");
         });
     });
 });

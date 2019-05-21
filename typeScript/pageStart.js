@@ -10,8 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const protractor_1 = require("protractor");
 const options_1 = require("./options");
-//let Options = require('./options');
-//let options = new Options();
 class PageStart {
     static get() {
         return __awaiter(this, void 0, void 0, function* () {

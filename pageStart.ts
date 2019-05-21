@@ -13,12 +13,10 @@ export class PageStart {
     public static async clickGeoButton() {
         await Options.isClickable(this.geoButton);
         await this.geoButton.click();
-        console.log("clickGeoButton");
     }
 
     public static async clickOnButtonMore() {
         await Options.isClickable(this.moreButton);
         await this.moreButton.click();
-        console.log("clickOnButtonMore");
     }
 }

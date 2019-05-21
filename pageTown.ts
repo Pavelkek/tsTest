@@ -1,4 +1,4 @@
-import {element, by, browser} from 'protractor';
+import {element, by} from 'protractor';
 import {Options} from './options';
 
 export class PageTown {
@@ -10,7 +10,6 @@ export class PageTown {
         await this.town.click();
         await this.town.clear();
         await this.town.sendKeys(townName);
-        console.log("написал город");
     }
 
     public static async setTown() {
