@@ -9,8 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const protractor_1 = require("protractor");
-let Options = require('./options');
-let options = new Options();
+const options_1 = require("./options");
+//let Options = require('./options');
+//let options = new Options();
 class PageStart {
     static get() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -19,14 +20,14 @@ class PageStart {
     }
     static clickGeoButton() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield options.isClickable(this.geoButton);
+            yield options_1.Options.isClickable(this.geoButton);
             yield this.geoButton.click();
             console.log("clickGeoButton");
         });
     }
     static clickOnButtonMore() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield options.isClickable(this.moreButton);
+            yield options_1.Options.isClickable(this.moreButton);
             yield this.moreButton.click();
             console.log("clickOnButtonMore");
         });

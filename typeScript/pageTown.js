@@ -9,12 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const protractor_1 = require("protractor");
-let conf = require('./options');
-let options = new conf();
+const options_1 = require("./options");
+//let conf = require('./options');
+//let options = new conf();
 class PageTown {
     static writeTown(townName) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield options.isClickable(this.town);
+            yield options_1.Options.isClickable(this.town);
             yield this.town.click();
             yield this.town.clear();
             yield this.town.sendKeys(townName);
@@ -23,10 +24,10 @@ class PageTown {
     }
     static setTown() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield options.isClickable(this.townValue);
-            yield protractor_1.browser.sleep(2000);
+            yield options_1.Options.isClickable(this.townValue);
+            //await browser.sleep(2000);
             yield this.townValue.click();
-            yield protractor_1.browser.sleep(2000);
+            //await browser.sleep(2000);
         });
     }
 }
