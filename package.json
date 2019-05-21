@@ -4,6 +4,7 @@
   "description": "e2e test",
   "main": "ts.conf.js",
   "scripts": {
+    "start": "webdriver-manager start",
     "webdriver-update": "webdriver-manager update",
     "pretest": "npm run tsc && npm run webdriver-update",
     "test": "protractor typeScript/ts.conf.js",
